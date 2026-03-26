@@ -1,0 +1,30 @@
+<header class="header" [class.scrolled]="isScrolled">
+  <nav class="container header__nav">
+    <a class="header__logo" (click)="scrollTo('inicio')" role="button" tabindex="0">
+      🌿 Nutri Sofía Monroy
+    </a>
+
+    <button
+      class="header__toggle"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen"
+      aria-label="Menú de navegación">
+      <span class="header__toggle-bar"></span>
+      <span class="header__toggle-bar"></span>
+      <span class="header__toggle-bar"></span>
+    </button>
+
+    <ul class="header__links" [class.open]="isMenuOpen">
+      @for (link of navLinks; track link.fragment) {
+        <li>
+          <a
+            (click)="scrollTo(link.fragment)"
+            role="button"
+            tabindex="0">
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+</header>

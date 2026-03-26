@@ -1,0 +1,23 @@
+@use 'styles/variables' as *;
+
+.footer {
+  background-color: $text;
+  color: $white;
+  padding: 2rem 0;
+
+  &__content {
+    text-align: center;
+  }
+
+  &__brand {
+    font-family: $font-heading;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  &__copy {
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+}

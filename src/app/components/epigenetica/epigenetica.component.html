@@ -1,0 +1,16 @@
+<section id="epigenetica" class="epigenetica section">
+  <div class="container">
+    <h2 class="section-title">Epigenética y Nutrición</h2>
+    <p class="section-subtitle">Descubre cómo la alimentación puede transformar la expresión de tus genes y mejorar tu salud hormonal</p>
+
+    <div class="epigenetica__grid">
+      @for (concept of concepts; track concept.title) {
+        <article class="epi-card">
+          <span class="epi-card__icon">{{ concept.icon }}</span>
+          <h3 class="epi-card__title">{{ concept.title }}</h3>
+          <p class="epi-card__text">{{ concept.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

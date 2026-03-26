@@ -1,0 +1,75 @@
+@use 'styles/variables' as *;
+
+.sobre-mi {
+  background-color: $white;
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  &__text {
+    p {
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+
+      strong {
+        color: $primary-dark;
+      }
+    }
+  }
+
+  &__intro {
+    font-size: 1.1rem !important;
+  }
+
+  &__credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+}
+
+.credential-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background-color: $accent;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba($primary, 0.15);
+  }
+
+  &__icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: 1.05rem;
+    color: $primary-dark;
+    margin-bottom: 0.25rem;
+  }
+
+  &__desc {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    opacity: 0.85;
+  }
+}
+
+@media (max-width: 768px) {
+  .sobre-mi__content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

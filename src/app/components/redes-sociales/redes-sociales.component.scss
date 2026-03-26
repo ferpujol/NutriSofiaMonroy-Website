@@ -1,0 +1,54 @@
+@use 'styles/variables' as *;
+
+.redes {
+  background-color: $white;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2rem 1.5rem;
+  background-color: $accent;
+  border-radius: 16px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba($primary, 0.18);
+  }
+
+  &__icon {
+    color: $primary-dark;
+    line-height: 1;
+  }
+
+  &__name {
+    font-family: $font-heading;
+    font-size: 1.15rem;
+    color: $primary-dark;
+  }
+
+  &__handle {
+    font-size: 0.85rem;
+    color: $text;
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 600px) {
+  .redes__grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+}
