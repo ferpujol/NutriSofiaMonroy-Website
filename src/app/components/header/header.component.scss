@@ -22,12 +22,23 @@
   }
 
   &__logo {
-    font-family: $font-heading;
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: $primary-dark;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    white-space: nowrap;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    height: 50px;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  &__logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
   }
 
   &__toggle {

@@ -1,6 +1,6 @@
 # Nutri Sofía Monroy — Landing Page
 
-A modern, elegant single-page landing website for a nutritionist specializing in **hormonal disorders** (Hashimoto, thyroid issues, metabolic imbalances).
+A modern, elegant single-page landing website for a nutritionist specializing in **functional medicine** with expertise in metabolic health and personalized nutrition.
 
 Built with **Angular 19** and styled with **SCSS** using a **pastel green color palette**.
 

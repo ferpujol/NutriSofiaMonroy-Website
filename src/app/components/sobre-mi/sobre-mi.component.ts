@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class SobreMiComponent {
   credentials = [
     { icon: '🎓', title: 'Licenciatura en Nutrición', description: 'Formación profesional con enfoque clínico y metabólico.' },
-    { icon: '🦋', title: 'Especialista en Tiroides', description: 'Enfoque en Hashimoto, hipotiroidismo e hipertiroidismo.' },
+    { icon: '🏥', title: 'Medicina Funcional', description: 'Enfoque integral que busca la raíz de los desequilibrios de salud.' },
     { icon: '🧬', title: 'Epigenética Nutricional', description: 'Cómo la alimentación modula la expresión de tus genes.' },
-    { icon: '💚', title: 'Enfoque Integral', description: 'Planes personalizados que conectan nutrición, hormonas y bienestar.' },
+    { icon: '💚', title: 'Planes Personalizados', description: 'Tratamientos individualizados que consideran tu bioquímica única.' },
   ];
 }

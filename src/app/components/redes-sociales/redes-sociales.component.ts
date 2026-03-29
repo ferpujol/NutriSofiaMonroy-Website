@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
 })
 export class RedesSocialesComponent {
   socialLinks = [
-    { name: 'Instagram', url: 'https://instagram.com/nutrisofiamonroy', label: '@nutrisofiamonroy' },
-    { name: 'TikTok', url: 'https://tiktok.com/@nutrisofiamonroy', label: '@nutrisofiamonroy' },
-    { name: 'Facebook', url: 'https://facebook.com/nutrisofiamonroy', label: 'Nutri Sofía Monroy' },
+    { name: 'Instagram', url: 'https://instagram.com/nutrisofiamonroy', label: '@nutrisofiamonroy', icon: 'instagram' },
+    { name: 'TikTok', url: 'https://tiktok.com/@nutrisofiamonroy', label: '@nutrisofiamonroy', icon: 'tiktok' },
   ];
 }

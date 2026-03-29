@@ -3,10 +3,71 @@
 .epigenetica {
   background-color: $off-white;
 
+  &__intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+
+  &__description {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: $text;
+    opacity: 0.9;
+  }
+
   &__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  &__cta {
+    max-width: 700px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, $primary-lighter 0%, $accent 100%);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+  }
+
+  &__cta-title {
+    font-family: $font-heading;
+    font-size: 1.5rem;
+    color: $primary-darker;
+    margin-bottom: 1.5rem;
+  }
+
+  &__benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    text-align: left;
+
+    li {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+      color: $text;
+
+      &::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: $primary;
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  &__note {
+    font-size: 0.95rem;
+    color: $text-light;
+    font-style: italic;
+    margin-top: 1.5rem;
   }
 }
 
@@ -44,7 +105,13 @@
 }
 
 @media (max-width: 768px) {
-  .epigenetica__grid {
-    grid-template-columns: 1fr;
+  .epigenetica {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__cta {
+      padding: 2rem 1.5rem;
+    }
   }
 }

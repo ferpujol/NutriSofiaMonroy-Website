@@ -1,16 +1,38 @@
 <section id="epigenetica" class="epigenetica section">
   <div class="container">
-    <h2 class="section-title">Epigenética y Nutrición</h2>
-    <p class="section-subtitle">Descubre cómo la alimentación puede transformar la expresión de tus genes y mejorar tu salud hormonal</p>
+    <h2 class="section-title">Test de Epigenética</h2>
+    <p class="section-subtitle">Descubre lo que tu cuerpo necesita con un análisis epigenético personalizado</p>
+
+    <div class="epigenetica__intro">
+      <p class="epigenetica__description">
+        La <strong>epigenética</strong> estudia cómo nuestro estilo de vida, alimentación y entorno 
+        activan o desactivan la expresión de nuestros genes. A través de un test no invasivo, 
+        puedo identificar las áreas de oportunidad en tu salud y crear un plan nutricional 
+        100% personalizado basado en tu bioquímica única.
+      </p>
+    </div>
 
     <div class="epigenetica__grid">
-      @for (concept of concepts; track concept.title) {
+      @for (feature of features; track feature.title) {
         <article class="epi-card">
-          <span class="epi-card__icon">{{ concept.icon }}</span>
-          <h3 class="epi-card__title">{{ concept.title }}</h3>
-          <p class="epi-card__text">{{ concept.description }}</p>
+          <span class="epi-card__icon">{{ feature.icon }}</span>
+          <h3 class="epi-card__title">{{ feature.title }}</h3>
+          <p class="epi-card__text">{{ feature.description }}</p>
         </article>
       }
+    </div>
+
+    <div class="epigenetica__cta">
+      <h3 class="epigenetica__cta-title">¿Qué incluye el análisis?</h3>
+      <ul class="epigenetica__benefits">
+        @for (benefit of benefits; track benefit) {
+          <li>{{ benefit }}</li>
+        }
+      </ul>
+      <p class="epigenetica__note">
+        Los resultados se obtienen en minutos y te proporcionan una guía clara 
+        para optimizar tu nutrición y bienestar.
+      </p>
     </div>
   </div>
 </section>

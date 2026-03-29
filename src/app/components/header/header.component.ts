@@ -13,8 +13,8 @@ export class HeaderComponent {
     { label: 'Inicio', fragment: 'inicio' },
     { label: 'Sobre Mí', fragment: 'sobre-mi' },
     { label: 'Epigenética', fragment: 'epigenetica' },
-    { label: 'Redes', fragment: 'redes-sociales' },
     { label: 'Agenda', fragment: 'agenda' },
+    { label: 'Redes', fragment: 'redes-sociales' },
   ];
 
   @HostListener('window:scroll')

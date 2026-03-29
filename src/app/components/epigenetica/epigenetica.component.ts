@@ -6,26 +6,35 @@ import { Component } from '@angular/core';
   styleUrl: './epigenetica.component.scss'
 })
 export class EpigeneticaComponent {
-  concepts = [
+  features = [
     {
       icon: '🧬',
-      title: '¿Qué es la Epigenética?',
-      description: 'Es la ciencia que estudia cómo factores externos, como la alimentación y el estilo de vida, pueden activar o silenciar genes sin cambiar tu ADN.'
+      title: 'Análisis No Invasivo',
+      description: 'Solo necesitamos una muestra de cabello para digitalizar tu información epigenética y obtener un panorama completo de tu salud.'
     },
     {
-      icon: '🥗',
-      title: 'Nutrición y Genes',
-      description: 'Los nutrientes que consumes envían señales a tus genes. Una dieta adecuada puede mejorar la expresión genética relacionada con tu metabolismo y hormonas.'
+      icon: '⚡',
+      title: 'Resultados Rápidos',
+      description: 'En minutos obtenemos información valiosa sobre deficiencias nutricionales, intolerancias alimentarias y desequilibrios metabólicos.'
     },
     {
-      icon: '🦋',
-      title: 'Hormonas y Expresión Genética',
-      description: 'Tus hormonas tiroideas influyen en miles de genes. A través de la nutrición epigenética, podemos optimizar esta comunicación celular.'
+      icon: '🎯',
+      title: 'Plan Personalizado',
+      description: 'Con base en tus resultados, diseño un protocolo nutricional específico utilizando la metodología de las 5 Rs de medicina funcional.'
     },
     {
       icon: '🌱',
-      title: 'Tu Poder de Cambio',
-      description: 'No estás definida por tu genética. Con las decisiones nutricionales correctas, puedes influir positivamente en tu salud hormonal y bienestar general.'
+      title: 'Optimiza tu Salud',
+      description: 'Identifica qué alimentos, nutrientes y hábitos necesitas para activar tus genes hacia el bienestar y la vitalidad óptima.'
     }
+  ];
+
+  benefits = [
+    'Identificación de deficiencias nutricionales',
+    'Detección de intolerancias y sensibilidades alimentarias',
+    'Análisis de desequilibrios metabólicos',
+    'Evaluación de estrés oxidativo y toxicidad',
+    'Recomendaciones de suplementación personalizada',
+    'Plan nutricional basado en tu bioquímica única'
   ];
 }
