@@ -20,6 +20,14 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+      - name: Debug SSH
+        run: |
+          echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK"
+          echo "SSH_AGENT_PID=$SSH_AGENT_PID"
+          ssh-add -l
+          echo "Testing direct connection..."
+          ssh -v -o StrictHostKeyChecking=no github@73.46.218.217 "echo 'SSH works'" || echo "SSH failed"
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
