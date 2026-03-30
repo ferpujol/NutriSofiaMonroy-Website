@@ -1,0 +1,71 @@
+name: Deploy NutriSofiaMonroy Website
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Angular app
+        run: npm run build
+
+      - name: Copy docker-compose.yml to server
+        env:
+          SERVER_USER: ${{ vars.VM_USER }}
+          SERVER_HOST: ${{ vars.VM_HOST }}
+        run: |
+          ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_HOST "mkdir -p /home/$SERVER_USER"
+          scp -o StrictHostKeyChecking=no docker-compose.yml $SERVER_USER@$SERVER_HOST:/home/$SERVER_USER/docker-compose-nutri-sofia.yml
+
+      - name: Copy nginx config to server
+        env:
+          SERVER_USER: ${{ vars.VM_USER }}
+          SERVER_HOST: ${{ vars.VM_HOST }}
+        run: |
+          scp -o StrictHostKeyChecking=no nginx-website.conf $SERVER_USER@$SERVER_HOST:/tmp/nginx-nutri-sofia.conf
+          ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_HOST "sudo mv /tmp/nginx-nutri-sofia.conf /home/$SERVER_USER/nginx-nutri-sofia.conf"
+
+      - name: Deploy website container
+        env:
+          SERVER_USER: ${{ vars.VM_USER }}
+          SERVER_HOST: ${{ vars.VM_HOST }}
+        run: |
+          ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_HOST "if ! sudo docker network inspect qultura-net >/dev/null 2>&1; then sudo docker network create --driver bridge qultura-net; fi && sudo docker compose -f /home/$SERVER_USER/docker-compose-nutri-sofia.yml up -d website"
+
+      - name: Deploy to server via rsync
+        env:
+          SERVER_USER: ${{ vars.VM_USER }}
+          SERVER_HOST: ${{ vars.VM_HOST }}
+        run: |
+          ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_HOST "sudo mkdir -p /var/www/nutri-sofia-website"
+          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" dist/nutri-sofia/browser/ $SERVER_USER@$SERVER_HOST:/var/www/nutri-sofia-website --rsync-path="sudo rsync"
+
+      - name: Reload nginx on server
+        env:
+          SERVER_USER: ${{ vars.VM_USER }}
+          SERVER_HOST: ${{ vars.VM_HOST }}
+        run: |
+          sleep 2
+          ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_HOST "sudo docker restart nutri_sofia_website"
