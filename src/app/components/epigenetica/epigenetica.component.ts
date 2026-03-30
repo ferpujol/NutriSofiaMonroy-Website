@@ -15,7 +15,7 @@ export class EpigeneticaComponent {
     {
       icon: '⚡',
       title: 'Resultados Rápidos',
-      description: 'En pocos días obtenemos información valiosa sobre deficiencias nutricionales, intolerancias alimentarias y desequilibrios metabólicos.'
+      description: 'En pocos días obtenemos información valiosa sobre deficiencias nutricionales, sensibilidades alimentarias y desequilibrios metabólicos.'
     },
     {
       icon: '🎯',
