@@ -1,0 +1,30 @@
+// === Color Palette (Based on Logo Color #86AC78) ===
+
+// Primary Green Palette
+$primary: #86AC78;           // Main brand color (logo)
+$primary-light: #A8D5BA;     // Light green for backgrounds
+$primary-lighter: #C8E6C9;   // Lighter green for hover/accents
+$primary-dark: #5D8B60;      // Dark green for text/emphasis
+$primary-darker: #3D5C41;    // Darker green for text
+
+// Accent Colors (Complementary warm tones)
+$accent: #E8F5E9;            // Very light green background
+$accent-warm: #D4A574;       // Warm beige/tan for accents
+$accent-light: #F5E6D3;      // Light warm neutral
+
+// Neutral Colors
+$text: #2D3B2D;              // Dark green-grey for text
+$text-light: #5D6C5D;        // Medium grey-green for secondary text
+$white: #FFFFFF;             // Pure white
+$off-white: #F5FAF6;         // Soft off-white (slightly greenish)
+$grey-light: #E8EBE8;        // Light grey
+$grey-medium: #A0A8A0;       // Medium grey
+
+// Status Colors
+$success: #86AC78;           // Success state
+$warning: #D4A574;           // Warning state
+$error: #C06C6C;             // Error state
+
+// === Typography ===
+$font-heading: 'Playfair Display', Georgia, serif;
+$font-body: 'Inter', system-ui, sans-serif;
