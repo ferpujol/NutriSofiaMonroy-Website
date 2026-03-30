@@ -15,12 +15,12 @@ export class EpigeneticaComponent {
     {
       icon: '⚡',
       title: 'Resultados Rápidos',
-      description: 'En minutos obtenemos información valiosa sobre deficiencias nutricionales, intolerancias alimentarias y desequilibrios metabólicos.'
+      description: 'En pocos días obtenemos información valiosa sobre deficiencias nutricionales, intolerancias alimentarias y desequilibrios metabólicos.'
     },
     {
       icon: '🎯',
       title: 'Plan Personalizado',
-      description: 'Con base en tus resultados, diseño un protocolo nutricional específico utilizando la metodología de las 5 Rs de medicina funcional.'
+      description: 'Con base en tus resultados epigenéticos, diseño un protocolo nutricional específico y personalizado para optimizar tu salud.'
     },
     {
       icon: '🌱',
@@ -30,11 +30,11 @@ export class EpigeneticaComponent {
   ];
 
   benefits = [
-    'Identificación de deficiencias nutricionales',
-    'Detección de intolerancias y sensibilidades alimentarias',
+    'Identificación de nutrientes a optimizar',
+    'Detección de sensibilidades alimentarias',
     'Análisis de desequilibrios metabólicos',
-    'Evaluación de estrés oxidativo y toxicidad',
-    'Recomendaciones de suplementación personalizada',
-    'Plan nutricional basado en tu bioquímica única'
+    'Análisis de la microbiota intestinal',
+    'Medición de la carga electromagnética de tu cuerpo',
+    'Evaluación del sistema inmunológico, metabólico y cardiovascular',
   ];
 }

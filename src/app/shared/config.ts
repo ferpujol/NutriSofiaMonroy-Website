@@ -1,5 +1,4 @@
 export const SITE_CONFIG = {
-  // TODO: Replace with the actual business WhatsApp number before deployment
   whatsappUrl:
-    'https://wa.me/5215512345678?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta%20contigo',
+    'https://wa.me/525539739197?text=Hola%2C%20estoy%20interesado%20en%20una%20consulta%20de%20nutrición.%20¿Podrías%20darme%20más%20información%3F',
 } as const;

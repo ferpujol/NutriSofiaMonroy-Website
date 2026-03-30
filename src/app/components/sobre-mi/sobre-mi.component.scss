@@ -31,6 +31,47 @@
     flex-direction: column;
     gap: 1.25rem;
   }
+
+  &__specializations {
+    margin-top: 2rem;
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+
+  &__spec-title {
+    font-family: $font-heading;
+    font-size: 1.4rem;
+    color: $primary-dark;
+    margin-bottom: 1.25rem;
+  }
+}
+
+.specialization-tags {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.spec-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: rgba($primary-light, 0.2);
+  border: 2px solid $primary-light;
+  border-radius: 50px;
+  color: $primary-dark;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $primary-light;
+    color: $white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba($primary, 0.2);
+  }
 }
 
 .credential-card {
@@ -71,5 +112,16 @@
   .sobre-mi__content {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .specialization-tags {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .spec-tag {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
   }
 }

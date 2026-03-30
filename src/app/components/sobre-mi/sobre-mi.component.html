@@ -6,12 +6,12 @@
     <div class="sobre-mi__content">
       <div class="sobre-mi__text">
         <p class="sobre-mi__intro">
-          ¡Hola! Soy <strong>Sofía Monroy</strong>, nutrióloga especializada en <strong>medicina funcional</strong>.
+          ¡Hola! Soy <strong>Sofía Monroy</strong>, nutrióloga especializada en <strong>nutrición funcional</strong>.
           Mi pasión es ayudar a personas a recuperar su energía y bienestar a través de un enfoque integral
           que considera la raíz de los desequilibrios metabólicos y de salud.
         </p>
         <p>
-          Mi enfoque combina la nutrición clínica con los avances en <strong>epigenética</strong> y medicina funcional,
+          Mi enfoque combina la nutrición clínica con los avances en <strong>epigenética</strong> y nutrición funcional,
           entendiendo que lo que comemos puede influir directamente en cómo se expresan nuestros genes,
           nuestro metabolismo y nuestra salud integral.
         </p>
@@ -32,6 +32,15 @@
             </div>
           </div>
         }
+      </div>
+
+      <div class="sobre-mi__specializations">
+        <h3 class="sobre-mi__spec-title">🎯 Especializaciones</h3>
+        <div class="specialization-tags">
+          @for (spec of specializations; track spec) {
+            <span class="spec-tag">{{ spec }}</span>
+          }
+        </div>
       </div>
     </div>
   </div>
