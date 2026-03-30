@@ -1,0 +1,52 @@
+@use 'sass:color';
+@use 'styles/variables' as *;
+
+.agenda {
+  background: linear-gradient(135deg, $accent 0%, color.adjust($primary-light, $lightness: 8%) 100%);
+
+  &__card {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto;
+    background-color: $white;
+    border-radius: 24px;
+    padding: 3.5rem 2.5rem;
+    box-shadow: 0 10px 40px rgba($primary, 0.12);
+  }
+
+  &__title {
+    font-size: 2rem;
+    color: $primary-dark;
+    margin-bottom: 1.25rem;
+  }
+
+  &__text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: $text;
+    opacity: 0.85;
+    margin-bottom: 2rem;
+  }
+
+  &__btn {
+    font-size: 1.1rem;
+    padding: 1rem 2.5rem;
+  }
+
+  &__note {
+    margin-top: 1.25rem;
+    font-size: 0.85rem;
+    color: $text;
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 768px) {
+  .agenda__card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .agenda__title {
+    font-size: 1.65rem;
+  }
+}

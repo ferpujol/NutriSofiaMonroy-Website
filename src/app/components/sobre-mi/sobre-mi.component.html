@@ -1,0 +1,47 @@
+<section id="sobre-mi" class="sobre-mi section">
+  <div class="container">
+    <h2 class="section-title">Sobre Mí</h2>
+    <p class="section-subtitle">Conóceme y descubre cómo puedo ayudarte a transformar tu salud</p>
+
+    <div class="sobre-mi__content">
+      <div class="sobre-mi__text">
+        <p class="sobre-mi__intro">
+          ¡Hola! Soy <strong>Sofía Monroy</strong>, nutrióloga especializada en <strong>nutrición funcional</strong>.
+          Mi pasión es ayudar a personas a recuperar su energía y bienestar a través de un enfoque integral
+          que considera la raíz de los desequilibrios metabólicos y de salud.
+        </p>
+        <p>
+          Mi enfoque combina la nutrición clínica con los avances en <strong>epigenética</strong> y nutrición funcional,
+          entendiendo que lo que comemos puede influir directamente en cómo se expresan nuestros genes,
+          nuestro metabolismo y nuestra salud integral.
+        </p>
+        <p>
+          Cada plan nutricional que diseño es completamente personalizado, porque creo firmemente
+          que no existe una dieta única para todos. Tu cuerpo es único y merece un tratamiento que
+          lo refleje.
+        </p>
+      </div>
+
+      <div class="sobre-mi__credentials">
+        @for (cred of credentials; track cred.title) {
+          <div class="credential-card">
+            <span class="credential-card__icon">{{ cred.icon }}</span>
+            <div>
+              <h3 class="credential-card__title">{{ cred.title }}</h3>
+              <p class="credential-card__desc">{{ cred.description }}</p>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="sobre-mi__specializations">
+        <h3 class="sobre-mi__spec-title">🎯 Especializaciones</h3>
+        <div class="specialization-tags">
+          @for (spec of specializations; track spec) {
+            <span class="spec-tag">{{ spec }}</span>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

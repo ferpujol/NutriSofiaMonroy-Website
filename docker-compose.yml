@@ -1,0 +1,16 @@
+services:
+  website:
+    image: nginx:alpine
+    container_name: nutri_sofia_website
+    restart: unless-stopped
+    volumes:
+      - /var/www/nutri-sofia-website:/usr/share/nginx/html:ro
+      - ./nginx-website.conf:/etc/nginx/conf.d/website.conf:ro
+    networks:
+      - qultura-net
+    ports:
+      - "8083:80"
+
+networks:
+  qultura-net:
+    external: true
