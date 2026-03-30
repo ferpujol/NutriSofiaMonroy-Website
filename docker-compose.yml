@@ -5,7 +5,7 @@ services:
     restart: unless-stopped
     volumes:
       - /var/www/nutri-sofia-website:/usr/share/nginx/html:ro
-      - ./nginx-website.conf:/etc/nginx/conf.d/website.conf:ro
+      - ./nginx-website-nutri.conf:/etc/nginx/conf.d/website.conf:ro
     networks:
       - qultura-net
     ports:

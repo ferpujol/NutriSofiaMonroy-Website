@@ -36,23 +36,22 @@ jobs:
           SERVER_USER: ${{ vars.VM_USER }}
           SERVER_HOST: ${{ vars.VM_HOST }}
         run: |
-          ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_HOST "mkdir -p /home/$SERVER_USER"
-          scp -o StrictHostKeyChecking=no docker-compose.yml $SERVER_USER@$SERVER_HOST:/home/$SERVER_USER/docker-compose-nutri-sofia.yml
+          ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_HOST "mkdir -p /home/$SERVER_USER/nutri-sofia"
+          scp -o StrictHostKeyChecking=no docker-compose.yml $SERVER_USER@$SERVER_HOST:/home/$SERVER_USER/nutri-sofia/docker-compose.yml
 
       - name: Copy nginx config to server
         env:
           SERVER_USER: ${{ vars.VM_USER }}
           SERVER_HOST: ${{ vars.VM_HOST }}
         run: |
-          scp -o StrictHostKeyChecking=no nginx-website.conf $SERVER_USER@$SERVER_HOST:/tmp/nginx-nutri-sofia.conf
-          ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_HOST "sudo mv /tmp/nginx-nutri-sofia.conf /home/$SERVER_USER/nginx-nutri-sofia.conf"
+          scp -o StrictHostKeyChecking=no nginx-website.conf $SERVER_USER@$SERVER_HOST:/home/$SERVER_USER/nutri-sofia/nginx-website-nutri.conf
 
       - name: Deploy website container
         env:
           SERVER_USER: ${{ vars.VM_USER }}
           SERVER_HOST: ${{ vars.VM_HOST }}
         run: |
-          ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_HOST "if ! sudo docker network inspect qultura-net >/dev/null 2>&1; then sudo docker network create --driver bridge qultura-net; fi && sudo docker compose -f /home/$SERVER_USER/docker-compose-nutri-sofia.yml up -d website"
+          ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_HOST "if ! sudo docker network inspect qultura-net >/dev/null 2>&1; then sudo docker network create --driver bridge qultura-net; fi && cd /home/$SERVER_USER/nutri-sofia && sudo docker compose up -d website"
 
       - name: Deploy to server via rsync
         env:
