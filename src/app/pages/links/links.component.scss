@@ -1,0 +1,197 @@
+@use 'sass:color';
+@use 'styles/variables' as *;
+
+.links-page {
+  min-height: 100vh;
+  background: linear-gradient(160deg, $off-white 0%, $accent 50%, $primary-lighter 100%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3rem 1.5rem 4rem;
+
+  &__container {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  // ── Profile ──────────────────────────────────────────────────────────────
+  &__profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  &__avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background-color: $white;
+    border: 3px solid $primary-light;
+    box-shadow: 0 4px 20px rgba($primary, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  &__logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__name {
+    font-family: $font-heading;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $primary-darker;
+    margin: 0;
+  }
+
+  &__tagline {
+    font-family: $font-body;
+    font-size: 0.95rem;
+    color: $text-light;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  // ── Links list ────────────────────────────────────────────────────────────
+  &__links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  // ── Social icons ──────────────────────────────────────────────────────────
+  &__socials {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 0.5rem;
+  }
+
+  &__social-icon {
+    color: $text-light;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.25s ease, transform 0.25s ease;
+
+    &:hover {
+      color: $primary-dark;
+      transform: translateY(-2px);
+    }
+  }
+
+  // ── Footer text ───────────────────────────────────────────────────────────
+  &__footer {
+    font-family: $font-body;
+    font-size: 0.8rem;
+    color: $grey-medium;
+    margin: 0;
+    letter-spacing: 0.03em;
+  }
+}
+
+// ── Button base ─────────────────────────────────────────────────────────────
+.links-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  font-family: $font-body;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+  }
+
+  &__label {
+    flex: 1;
+    text-align: center;
+    padding-right: 28px; // Compensate icon width so label is truly centered
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba($primary, 0.25);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+
+  // ── Outline variant (Página web) ──────────────────────────────────────────
+  &--outline {
+    background-color: $white;
+    color: $primary-dark;
+    border: 2px solid $primary-light;
+
+    &:hover {
+      background-color: $accent;
+      border-color: $primary;
+      box-shadow: 0 8px 24px rgba($primary, 0.2);
+    }
+  }
+
+  // ── Primary variant (Ebook) ───────────────────────────────────────────────
+  &--primary {
+    background-color: $primary;
+    color: $white;
+    border: 2px solid transparent;
+
+    &:hover {
+      background-color: $primary-dark;
+      box-shadow: 0 8px 24px rgba($primary, 0.4);
+    }
+  }
+
+  // ── WhatsApp variant ──────────────────────────────────────────────────────
+  &--whatsapp {
+    background-color: #25D366;
+    color: $white;
+    border: 2px solid transparent;
+
+    &:hover {
+      background-color: #1DA851;
+      box-shadow: 0 8px 24px rgba(#25D366, 0.4);
+    }
+  }
+}
+
+// ── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 480px) {
+  .links-page {
+    padding: 2rem 1.25rem 3rem;
+
+    &__name {
+      font-size: 1.4rem;
+    }
+  }
+
+  .links-btn {
+    font-size: 0.95rem;
+    padding: 0.9rem 1.25rem;
+  }
+}
