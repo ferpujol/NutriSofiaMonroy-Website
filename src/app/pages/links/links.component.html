@@ -26,7 +26,8 @@
       </a>
 
       <!-- Ebook Hipotiroidismo de Hashimoto -->
-      <a [href]="ebookUrl" target="_blank" rel="noopener noreferrer" download class="links-btn links-btn--primary">
+      <a [href]="ebookUrl" target="_blank" rel="noopener noreferrer" download
+         (click)="handleEbookClick($event)" class="links-btn links-btn--primary">
         <span class="links-btn__icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
@@ -67,3 +68,30 @@
     <p class="links-page__footer">nutrisofiamonroy.com</p>
   </div>
 </div>
+
+<!-- In-app browser notice: shown when the PDF download is not supported -->
+@if (showInAppBrowserNotice) {
+  <div class="in-app-notice" role="dialog" aria-modal="true" aria-labelledby="in-app-notice-title">
+    <div class="in-app-notice__backdrop" (click)="dismissNotice()"></div>
+    <div class="in-app-notice__card">
+      <div class="in-app-notice__icon" aria-hidden="true">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/>
+          <line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+      </div>
+      <h2 id="in-app-notice-title" class="in-app-notice__title">Abre en tu navegador</h2>
+      <p class="in-app-notice__body">
+        La descarga no está disponible dentro de esta app.
+        Para obtener el ebook, ábrelo en tu navegador (Chrome, Safari, etc.):
+      </p>
+      <p class="in-app-notice__hint">
+        Toca el icono de los tres puntos <strong>···</strong> o el botón de compartir
+        y selecciona <strong>"Abrir en navegador"</strong>.
+      </p>
+      <button type="button" class="in-app-notice__close" (click)="dismissNotice()">Entendido</button>
+    </div>
+  </div>
+}
