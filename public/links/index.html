@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Sofía Monroy | Links</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!--
+    Non-blocking Google Fonts: loaded asynchronously so they never delay first paint.
+    If the stylesheet fails (e.g. blocked in a WebView), system-font fallbacks take over.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=optional"
+        onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=optional">
+  </noscript>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary:        #86AC78;
+      --primary-light:  #A8D5BA;
+      --primary-lighter:#C8E6C9;
+      --primary-dark:   #5D8B60;
+      --primary-darker: #3D5C41;
+      --accent:         #E8F5E9;
+      --off-white:      #F5FAF6;
+      --text:           #2D3B2D;
+      --text-light:     #5D6C5D;
+      --white:          #FFFFFF;
+      --grey-medium:    #A0A8A0;
+      --whatsapp:       #25D366;
+      --whatsapp-dark:  #1DA851;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: linear-gradient(160deg, var(--off-white) 0%, var(--accent) 50%, var(--primary-lighter) 100%);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* Page layout */
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    /* Profile section */
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background-color: var(--white);
+      border: 3px solid var(--primary-light);
+      box-shadow: 0 4px 20px rgba(134, 172, 120, 0.2);
+      overflow: hidden;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .name {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary-darker);
+      margin: 0;
+    }
+
+    .tagline {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin: 0;
+      font-weight: 500;
+    }
+
+    /* Links list */
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    /* Button base */
+    .btn {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:active { transform: translateY(-1px); }
+
+    .btn__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+    }
+
+    .btn__label {
+      flex: 1;
+      text-align: center;
+      /* compensate icon width so label is visually centred */
+      padding-right: 28px;
+    }
+
+    /* Outline variant — Página web */
+    .btn--outline {
+      background-color: var(--white);
+      color: var(--primary-dark);
+      border: 2px solid var(--primary-light);
+    }
+
+    /* Primary variant — Ebook */
+    .btn--primary {
+      background-color: var(--primary);
+      color: var(--white);
+      border: 2px solid transparent;
+    }
+
+    /* WhatsApp variant */
+    .btn--whatsapp {
+      background-color: var(--whatsapp);
+      color: var(--white);
+      border: 2px solid transparent;
+    }
+
+    /* Hint shown below the ebook button for in-app browsers */
+    .inapp-hint {
+      width: 100%;
+      background-color: var(--accent);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+      color: var(--text-light);
+      text-align: center;
+      line-height: 1.55;
+      /* Shift up to sit closer to the ebook button */
+      margin-top: -0.5rem;
+    }
+
+    /* Social icons row */
+    .socials {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-top: 0.5rem;
+    }
+
+    .social-icon {
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-text {
+      font-size: 0.8rem;
+      color: var(--grey-medium);
+      margin: 0;
+      letter-spacing: 0.03em;
+    }
+
+    @media (max-width: 480px) {
+      .page  { padding: 2rem 1.25rem 3rem; }
+      .name  { font-size: 1.4rem; }
+      .btn   { font-size: 0.95rem; padding: 0.9rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="container">
+
+      <!-- Profile -->
+      <div class="profile">
+        <div class="avatar">
+          <img src="/images/profile.png" alt="Nutri Sofía Monroy" width="110" height="110">
+        </div>
+        <h1 class="name">Sofía Monroy</h1>
+        <p class="tagline">🌿 Nutrióloga Funcional</p>
+      </div>
+
+      <!-- Links -->
+      <div class="links">
+
+        <!-- Página web -->
+        <a href="/" class="btn btn--outline">
+          <span class="btn__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </span>
+          <span class="btn__label">Página web</span>
+        </a>
+
+        <!-- Ebook Hipotiroidismo de Hashimoto -->
+        <a href="/ebook-hipotiroidismo-hashimoto.pdf" class="btn btn--primary">
+          <span class="btn__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              <line x1="8" y1="9" x2="15" y2="9"/>
+              <line x1="8" y1="13" x2="13" y2="13"/>
+            </svg>
+          </span>
+          <span class="btn__label">Ebook Hipotiroidismo de Hashimoto</span>
+        </a>
+
+        <!--
+          Static hint for in-app browsers (TikTok, Instagram, etc.).
+          Downloading a PDF is blocked in most in-app WebViews — this tells users how to proceed
+          without needing any JavaScript.
+        -->
+        <p class="inapp-hint">
+          📱 ¿Usas TikTok o Instagram? Toca <strong>···</strong> y elige
+          <strong>"Abrir en navegador"</strong> para descargar el ebook.
+        </p>
+
+        <!-- Agenda tu consulta — WhatsApp -->
+        <!--
+          wa.me links are handled by the OS (opens WhatsApp app directly).
+          No target="_blank" needed; the OS intercepts the scheme before the WebView navigates.
+        -->
+        <a href="https://wa.me/525539739197?text=Hola%2C%20me%20interesa%20una%20consulta%20de%20nutrici%C3%B3n.%20%C2%BFPodr%C3%ADas%20darme%20m%C3%A1s%20informaci%C3%B3n%3F"
+           class="btn btn--whatsapp">
+          <span class="btn__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </span>
+          <span class="btn__label">Agenda tu consulta</span>
+        </a>
+
+      </div>
+
+      <!-- Social icons -->
+      <div class="socials">
+        <a href="https://instagram.com/nutrisofiamonroy"
+           rel="noopener noreferrer"
+           class="social-icon"
+           aria-label="Instagram">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+        </a>
+        <a href="https://tiktok.com/@nutrisofiamonroy"
+           rel="noopener noreferrer"
+           class="social-icon"
+           aria-label="TikTok">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.48v-7.1a8.16 8.16 0 005.58 2.18V11.3a4.85 4.85 0 01-3.15-1.15V6.69h3.15z"/>
+          </svg>
+        </a>
+      </div>
+
+      <p class="footer-text">nutrisofiamonroy.com</p>
+
+    </div>
+  </div>
+</body>
+</html>

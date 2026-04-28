@@ -15,9 +15,34 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <!--
+    Non-blocking font load: using rel="preload" + onload swap avoids the
+    render-blocking behaviour of a plain <link rel="stylesheet">.  If the
+    stylesheet can't be fetched (e.g. in a restricted WebView) the page still
+    renders immediately with the system-font fallbacks declared in CSS.
+  -->
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+  </noscript>
 </head>
 <body>
   <app-root></app-root>
+  <!--
+    Shown only when JavaScript is unavailable or blocked (e.g. some hardened
+    WebViews).  Angular cannot bootstrap without JS, so we offer a direct link
+    to the static /links page which has zero JavaScript dependencies.
+  -->
+  <noscript>
+    <style>app-root { display: none; }</style>
+    <div style="font-family:system-ui,-apple-system,sans-serif;text-align:center;padding:3rem 1.5rem;color:#3D5C41;background:#F5FAF6;min-height:100vh;">
+      <h1 style="font-size:1.5rem;margin-bottom:1rem;">Nutri Sofía Monroy</h1>
+      <p style="margin-bottom:1.5rem;color:#5D6C5D;">Para una mejor experiencia, habilita JavaScript en tu navegador.</p>
+      <a href="/links" style="background:#86AC78;color:#fff;padding:0.875rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;display:inline-block;">Ver enlaces →</a>
+    </div>
+  </noscript>
 </body>
 </html>
