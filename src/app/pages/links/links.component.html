@@ -13,16 +13,45 @@
     <!-- Links -->
     <div class="links-page__links">
 
-      <!-- Página web -->
-      <a [href]="homeUrl" (click)="handleWebsiteClick()" class="links-btn links-btn--outline">
+      <!-- Agenda tu consulta -->
+      <a [href]="whatsappUrl" target="_blank" rel="noopener noreferrer"
+         (click)="handleWhatsappClick()" class="links-btn links-btn--whatsapp">
         <span class="links-btn__icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="2" y1="12" x2="22" y2="12"/>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
           </svg>
         </span>
-        <span class="links-btn__label">Página web</span>
+        <span class="links-btn__label">Agenda tu consulta</span>
+      </a>
+
+      <!-- Recetario Saludable Navideño (gratis, temporada navideña) -->
+      <a [href]="recetarioUrl" target="_blank" rel="noopener noreferrer" download
+         (click)="handleRecetarioClick($event)" class="links-btn links-btn--navidad">
+        <!-- Adornos: nieve y rama de pino con bayas (solo decorativos) -->
+        <span class="links-btn__festive" aria-hidden="true">
+          <svg class="links-btn__sprig" viewBox="0 0 80 50">
+            <path d="M78 49 C62 38 44 24 18 8" fill="none" stroke="#C49A6C" stroke-width="2" stroke-linecap="round"/>
+            <g stroke-width="2.4" stroke-linecap="round">
+              <path d="M68 42 l3 -10 M68 42 l-10 1" stroke="#A7D08F"/>
+              <path d="M59 36 l2 -10 M59 36 l-10 0" stroke="#7FB06C"/>
+              <path d="M50 30 l1 -10 M50 30 l-10 -1" stroke="#8DBF7A"/>
+              <path d="M41 24 l0 -9 M41 24 l-9 -2" stroke="#B9DDA3"/>
+              <path d="M32 18 l-1 -8 M32 18 l-8 -3" stroke="#A7D08F"/>
+              <path d="M24 12 l-2 -6 M24 12 l-7 -3" stroke="#7FB06C"/>
+            </g>
+            <circle cx="56" cy="40" r="4.6" fill="#C2282F"/><circle cx="64" cy="44" r="4.2" fill="#A51F27"/><circle cx="62" cy="35" r="3.8" fill="#D63A3F"/>
+            <circle cx="54.6" cy="38.6" r="1.4" fill="#fff" opacity=".65"/><circle cx="60.8" cy="33.8" r="1.1" fill="#fff" opacity=".65"/>
+          </svg>
+        </span>
+        <span class="links-btn__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="4" y="9" width="16" height="11" rx="1"/>
+            <path d="M3 9h18M12 9v11"/>
+            <path d="M12 9c-1.5-3.5-5.5-4-5.5-1.5S12 9 12 9zM12 9c1.5-3.5 5.5-4 5.5-1.5S12 9 12 9z"/>
+          </svg>
+        </span>
+        <span class="links-btn__label">Recetario Saludable Navideño</span>
+        <span class="links-btn__badge">Gratis</span>
       </a>
 
       <!-- Ebook Hipotiroidismo de Hashimoto -->
@@ -39,15 +68,16 @@
         <span class="links-btn__label">Ebook Hipotiroidismo de Hashimoto</span>
       </a>
 
-      <!-- Agenda tu consulta -->
-      <a [href]="whatsappUrl" target="_blank" rel="noopener noreferrer"
-         (click)="handleWhatsappClick()" class="links-btn links-btn--whatsapp">
+      <!-- Página web -->
+      <a [href]="homeUrl" (click)="handleWebsiteClick()" class="links-btn links-btn--outline">
         <span class="links-btn__icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
           </svg>
         </span>
-        <span class="links-btn__label">Agenda tu consulta</span>
+        <span class="links-btn__label">Página web</span>
       </a>
 
     </div>

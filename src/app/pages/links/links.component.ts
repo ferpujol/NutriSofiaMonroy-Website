@@ -12,6 +12,7 @@ export class LinksComponent {
 
   whatsappUrl = SITE_CONFIG.whatsappUrl;
   ebookUrl = '/ebook-hipotiroidismo-hashimoto.pdf';
+  recetarioUrl = '/recetario-saludable-navideno.pdf';
   homeUrl = '/';
   showInAppBrowserNotice = false;
 
@@ -28,23 +29,11 @@ export class LinksComponent {
   }
 
   handleEbookClick(event: Event): void {
-    const inApp = this.isInAppBrowser();
+    this.handlePdfClick(event, 'ebook_hashimoto', this.ebookUrl, 'Ebook Hipotiroidismo de Hashimoto');
+  }
 
-    this.analytics.trackLinksButtonClick('ebook_hashimoto', this.ebookUrl, {
-      blocked_by_in_app: inApp,
-    });
-
-    this.analytics.trackEvent('file_download', {
-      file_name: 'ebook-hipotiroidismo-hashimoto.pdf',
-      file_extension: 'pdf',
-      link_text: 'Ebook Hipotiroidismo de Hashimoto',
-      blocked_by_in_app: inApp,
-    });
-
-    if (inApp) {
-      event.preventDefault();
-      this.showInAppBrowserNotice = true;
-    }
+  handleRecetarioClick(event: Event): void {
+    this.handlePdfClick(event, 'recetario_navideno', this.recetarioUrl, 'Recetario Saludable Navideño');
   }
 
   handleSocialClick(platform: 'instagram' | 'tiktok', url: string): void {
@@ -53,6 +42,27 @@ export class LinksComponent {
 
   dismissNotice(): void {
     this.showInAppBrowserNotice = false;
+  }
+
+  /** Mide la descarga del PDF y, dentro de apps (TikTok, Instagram…) que bloquean descargas, muestra el aviso. */
+  private handlePdfClick(event: Event, buttonName: string, url: string, linkText: string): void {
+    const inApp = this.isInAppBrowser();
+
+    this.analytics.trackLinksButtonClick(buttonName, url, {
+      blocked_by_in_app: inApp,
+    });
+
+    this.analytics.trackEvent('file_download', {
+      file_name: url.replace(/^\//, ''),
+      file_extension: 'pdf',
+      link_text: linkText,
+      blocked_by_in_app: inApp,
+    });
+
+    if (inApp) {
+      event.preventDefault();
+      this.showInAppBrowserNotice = true;
+    }
   }
 
   private isInAppBrowser(): boolean {
