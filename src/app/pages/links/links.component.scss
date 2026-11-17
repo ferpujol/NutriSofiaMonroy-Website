@@ -167,6 +167,87 @@
     }
   }
 
+  // ── Navidad variant (Recetario Saludable Navideño) ───────────────────────
+  &--navidad {
+    position: relative;
+    color: $white;
+    background: linear-gradient(135deg, #24452D 0%, #2F5A37 55%, #3B6B41 100%);
+    border: 2px solid #D9B45A;
+    box-shadow: 0 6px 18px rgba(#24452D, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    margin-top: 0.55rem; // espacio para la etiqueta «Gratis»
+
+    .links-btn__icon {
+      position: relative;
+      z-index: 1;
+      color: #F2D27A;
+    }
+
+    .links-btn__label {
+      position: relative;
+      z-index: 1;
+      font-family: $font-heading;
+      font-size: 1.08em;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    &:hover {
+      background: linear-gradient(135deg, #1E3A26 0%, #284E30 55%, #335E39 100%);
+      box-shadow: 0 8px 24px rgba(#24452D, 0.45), 0 0 0 3px rgba(#D9B45A, 0.25);
+    }
+  }
+
+  // Capa de adornos recortada a la forma del botón (la etiqueta queda fuera)
+  &__festive {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  // nieve en una capa propia, para que la máscara no recorte las ramas
+  &__festive::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle, rgba(255, 255, 255, 0.7) 0 1.4px, transparent 1.9px),
+      radial-gradient(circle, rgba(255, 255, 255, 0.4) 0 1px, transparent 1.5px);
+    background-size: 38px 34px, 27px 23px;
+    background-position: 8px 6px, 21px 15px;
+    animation: links-nieve 9s linear infinite;
+    // la nieve solo en los extremos, para no ensuciar el texto
+    -webkit-mask-image: linear-gradient(to right, #000 0 14%, transparent 26% 74%, #000 86% 100%);
+    mask-image: linear-gradient(to right, #000 0 14%, transparent 26% 74%, #000 86% 100%);
+  }
+
+  &__sprig {
+    position: absolute;
+    right: 16px;
+    bottom: 3px;
+    width: 64px;
+    height: 40px;
+  }
+
+  &__badge {
+    position: absolute;
+    top: -0.7rem;
+    right: 1.4rem;
+    z-index: 2;
+    background: #B3262E;
+    color: $white;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.18rem 0.6rem;
+    border-radius: 50px;
+    border: 1.5px solid #F2D27A;
+    box-shadow: 0 3px 8px rgba(#B3262E, 0.35);
+  }
+
   // ── WhatsApp variant ──────────────────────────────────────────────────────
   &--whatsapp {
     background-color: #25D366;
@@ -177,6 +258,18 @@
       background-color: #1DA851;
       box-shadow: 0 8px 24px rgba(#25D366, 0.4);
     }
+  }
+}
+
+// Nieve que cae despacio en el botón del recetario
+@keyframes links-nieve {
+  from { background-position: 8px 6px, 21px 15px; }
+  to { background-position: 8px 40px, 21px 38px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .links-btn__festive::before {
+    animation: none;
   }
 }
 
